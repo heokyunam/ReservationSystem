@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import junit.framework.TestCase;
-import main.java.com.overtheinfite.ProductManager.DBMB;
+import main.java.com.overtheinfinite.reservation.DBMB;
 
 public class TestDBMB extends TestCase {
 	

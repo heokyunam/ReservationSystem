@@ -5,15 +5,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>Test DateList</title>
 </head>
 <link rel="stylesheet" type="text/css" href="../css/calendar.css"></link>
 <body>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="../js/calendar2.js"></script>
+<script src="../js/date_system.js"></script>
 <script>
 //JSON.parse(...) 문자열을 오브젝트로 파싱한다고 함
-	
+
 </script>
 
 <div class="month">      
@@ -39,6 +39,22 @@
 
 <ul class="days" id="days">
 </ul>
+
+<div>
+	<div>
+		예약 시간 :
+		<input type="time"></input>
+	</div>
+	
+	<div>
+		예약 호수 : 
+	</div>
+		
+	<div>
+		<input type="button" value = "예약"></input>
+	</div>
+	
+</div>
 
 </body>
 </html>

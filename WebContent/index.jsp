@@ -11,7 +11,7 @@
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <link rel="stylesheet" type="text/css" href="css/calendar.css"></link>
 <body>
-<script src="js/calendar2.js"></script>
+<script src="js/date_system.js"></script>
 <script>
 	var days;
 	var index = -1;

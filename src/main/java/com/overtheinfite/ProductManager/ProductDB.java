@@ -3,6 +3,8 @@ package main.java.com.overtheinfite.ProductManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import main.java.com.overtheinfinite.reservation.DBMB;
+
 public class ProductDB extends DBMB {
 	public void addProduct(String name, int price) {
 		try {

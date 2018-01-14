@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Calendar;
 
 public class DBMB {
 	private Connection conn;
@@ -31,6 +33,10 @@ public class DBMB {
 			else if(arg instanceof Integer){
 				p.setInt(i+1, (Integer) arg); 
 			}
+			else if(arg instanceof Calendar) {
+				Calendar c = (Calendar) arg;
+				p.setTimestamp(i+1, new Timestamp(c.getTimeInMillis()));
+			}
 		}
 		return p;
 	}
@@ -40,9 +46,9 @@ public class DBMB {
 		return p.executeQuery();
 	}
 	
-	public void execute(String sql, Object...args) throws SQLException {
+	public boolean execute(String sql, Object...args) throws SQLException {
 		PreparedStatement p = makeStatement(sql, args);
-		p.execute();
+		return p.execute();
 	}
 	
 	public class LoginException extends RuntimeException {

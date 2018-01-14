@@ -17,25 +17,38 @@
 <script>
 <%
 DBMB dbmb = new DBMB();
-Reservation r = new Reservation(dbmb);
-String roomList = r.roomList().toString();
+Room r = new Room(dbmb);
 %>
 
+var year, month;
 $(document).ready(function() {
-	initRoomList();
-	
+	var date = new Date();
+	year = date.getFullYear();
+	month = date.getMonth()+1;
+	updateYM();
 });
 
-function initRoomList() {
-	var roomList = <%=roomList%>;
-	var datalist = $("#browser");
-	var html = "";
-	for(var i = 0; i < roomList.length; i++) {
-		html += "<option value='";
-		html += roomList[i];
-		html += "'>'"
+function updateYM() {
+	$("#fullyear").text(year + "³â");
+	$("#month").text(month + "¿ù");	
+}
+
+function prevMonth() {
+	month--;
+	if(month == 0) {
+		month = 12;
+		year--;
 	}
-	datalist.text(html);
+	updateYM();
+}
+
+function nextMonth() {
+	month++;
+	if(month > 12) {
+		month = 1;
+		year++;
+	}
+	updateYM();
 }
 
 function reservate() {
@@ -52,8 +65,10 @@ function reservate() {
 	var obj = {
 		start : start,
 		end : end,
-		date : date,
-		room : room
+		room : int(room),
+		year : int(year),
+		month : int(month-1),
+		date : int(date)
 	};
 	
 	$.post("../jsp/reservation.jsp", obj,
@@ -66,11 +81,11 @@ function reservate() {
 
 <div class="month">      
   <ul>
-    <li class="prev">&#10094;</li>
-    <li class="next">&#10095;</li>
+    <li class="prev" onclick="prevMonth()">&#10094;</li>
+    <li class="next" onclick="nextMonth()">&#10095;</li>
     <li id = "year">
       <span id="month">August</span><br/>
-      <span style="font-size:18px" id="year">2018</span>
+      <span style="font-size:18px" id="fullyear">2018</span>
     </li>
   </ul>
 </div>

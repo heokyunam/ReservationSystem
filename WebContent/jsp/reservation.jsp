@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@page import="main.java.com.overtheinfinite.reservation.*" %>
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -18,15 +18,17 @@
 			Integer.parseInt(year), 
 			Integer.parseInt(month), 
 			Integer.parseInt(date));
-	String exMsg = "����";
+	String exMsg = "성공";
 	try {
 		if(r.canReservate()) {
 			r.reservate();
+		}
+		else {
+			exMsg = "예약시간이 겹칩니다.";
 		}
 	}catch(Exception e) {
 		exMsg = e.getMessage();
 	}
 	
 %>
-
 <%=exMsg %>

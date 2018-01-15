@@ -1,0 +1,3 @@
+WebContent/js/node_modules/*
+WebContent/package-lock.json
+WebContent/main.js

@@ -53,6 +53,10 @@ function nextMonth() {
 
 function reservate() {
 	var roomDOM = $("#room")[0];
+	if(prev == null) {
+		alert("날짜가 선택되지 않았습니다.");
+		return;
+	}
 	var date = prev.children('span').html();//prev is li element
 	var room = roomDOM.options[roomDOM.selectedIndex].value;
 	
@@ -65,15 +69,15 @@ function reservate() {
 	var obj = {
 		start : start,
 		end : end,
-		room : int(room),
-		year : int(year),
-		month : int(month-1),
-		date : int(date)
+		room : room,
+		year : year,
+		month : month-1,
+		date : date
 	};
 	
 	$.post("../jsp/reservation.jsp", obj,
 		function(data) {
-			console.log(data);
+			alert(data);
 		}
 	);
 }

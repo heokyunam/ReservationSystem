@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="css/calendar.css"></link>
 <body>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="js/rs.js"></script>
+<script src="js/rs.js?ver=1"></script>
 <script>
 <%
 DBMB dbmb = new DBMB();
@@ -66,6 +66,14 @@ Room r = new Room(dbmb);
 		
 	<div>
 		<input type="button" value = "예약" onclick="reservate()"></input>
+	</div>
+	<div>
+		예약 이름 : 
+		<input id="reservation_name"></input>
+	</div>
+	<div>
+		예약 설명:
+		<input id="reservation_description"></input>
 	</div>
 	
 </div>

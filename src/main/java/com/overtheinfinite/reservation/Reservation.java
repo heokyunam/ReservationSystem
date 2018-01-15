@@ -43,13 +43,13 @@ public class Reservation {
 		return this.end;
 	}
 	
-	public void reservate()
+	public void reservate(String name, String description)
 	{
-		String sql = "insert into calendar(start, end, room_id) values (?,?,?)";
+		String sql = "insert into calendar(start, end, room_id, name, description) values (?,?,?,?,?)";
 		try {
-			dbmb.execute(sql, start, end, room);
+			dbmb.execute(sql, start, end, room, name, description);
 		} catch (SQLException e) {
-			throw new ReservationException("DB에서 예약정보를 입력하던 중 에러가 발생하였습니다", e);
+			throw new ReservationException("DB에서 예약정보를 입력하던 중 에러가 발생하였습니다 : " + name + " " + description, e);
 		}
 		
 	}

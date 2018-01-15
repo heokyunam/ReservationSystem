@@ -30,7 +30,7 @@ public class TestReservation extends TestCase{
 		
 		assertTrue(r.canReservate());//처음엔 되고 두번째엔 안되어야 한다
 		
-		r.reservate();
+		r.reservate("테스트", "테스트1");
 		
 		Reservation r2 = new Reservation(dbmb);
 		r2.init("9:00", "13:00", 1, 2018, 0, 12);
